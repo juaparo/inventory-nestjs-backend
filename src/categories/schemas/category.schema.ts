@@ -3,13 +3,13 @@ import { HydratedDocument } from 'mongoose';
 
 export type CategoryDocument = HydratedDocument<Category>;
 
-@Schema()
+@Schema({timestamps: true})
 export class Category {
   @Prop({ required: true })
-  categoryName: string;
+  categoryName!: string;
 
   @Prop({ maxLength: 150 })
-  description: string;
+  description!: string;
 }
 
 export const CategorySchema = SchemaFactory.createForClass(Category);

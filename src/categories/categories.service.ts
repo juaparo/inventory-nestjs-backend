@@ -9,7 +9,7 @@ import { Model } from 'mongoose';
 export class CategoriesService {
   constructor(
     @InjectModel(Category.name) private readonly categoryModel: Model<Category>,
-  ) {}
+  ) { }
 
   async create(createCategoryDto: CreateCategoryDto): Promise<Category> {
     const createCat = new this.categoryModel(createCategoryDto);
@@ -29,11 +29,16 @@ export class CategoriesService {
     return cat;
   }
 
-  update(id: number, updateCategoryDto: UpdateCategoryDto) {
-    return `This action updates a #${id} category`;
-  }
+  async update(id: string, updateCategoryDto: UpdateCategoryDto): Promise<Category> {
+    const updateCategory = await this.categoryModel.findByIdAndUpdate(
+      id,
+      updateCategoryDto,
+      { returnDocument: 'after' }
+    );
 
-  remove(id: number) {
-    return `This action removes a #${id} category`;
+    if (!updateCategory) {
+      throw new NotFoundException(`Category #${id} not found`);
+    }
+    return updateCategory;
   }
 }

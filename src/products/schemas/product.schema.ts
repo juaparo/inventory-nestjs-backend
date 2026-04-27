@@ -3,19 +3,19 @@ import { HydratedDocument } from 'mongoose';
 
 export type ProductDocument = HydratedDocument<Product>;
 
-@Schema()
+@Schema({ timestamps: true})
 export class Product {
     @Prop({ required: true })
-    name: string;
+    name!: string;
 
     @Prop({ default: 0 })
-    unitPrice: number;
+    unitPrice!: number;
 
     @Prop({ default: 0 })
-    minStock: number;
+    minStock!: number;
 
-    @Prop({ maxLength: 150})
-    description: string
+    @Prop({ maxLength: 150 })
+    description!: string;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
