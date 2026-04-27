@@ -13,6 +13,9 @@ export class Product {
 
     @Prop({ default: 0 })
     minStock: number;
+
+    @Prop({ maxLength: 150})
+    description: string
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
