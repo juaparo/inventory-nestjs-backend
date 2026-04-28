@@ -5,13 +5,24 @@ export type AlertDocument = HydratedDocument<Alert>
 
 @Schema({ timestamps: true })
 export class Alert {
-    @Prop({ type: String, required: true })
+    @Prop({
+        type: String,
+        required: true
+    })
     message!: string;
 
-    @Prop({ type: Date, required: false, default: Date.now() })
-    date!:  Date;
+    @Prop({
+        type: Date,
+        required: false,
+        default: Date.now
+    })
+    date!: Date;
 
-    @Prop({ type: Boolean, required: true, default: false })
+    @Prop({
+        type: Boolean,
+        required: false,
+        default: false
+    })
     read!: boolean;
 }
 

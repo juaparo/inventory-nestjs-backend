@@ -8,7 +8,7 @@ export class Category {
   @Prop({ required: true })
   categoryName!: string;
 
-  @Prop({ maxLength: 150 })
+  @Prop({ maxLength: 150, required: true })
   description!: string;
 }
 
