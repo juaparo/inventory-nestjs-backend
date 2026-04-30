@@ -1,5 +1,4 @@
-import { Type } from "class-transformer";
-import { IsBoolean, IsDate, IsDateString, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { IsBoolean, IsDateString, IsNotEmpty, IsOptional, IsString } from "class-validator";
 
 export class CreateAlertDto {
     @IsString()
@@ -13,5 +12,5 @@ export class CreateAlertDto {
     @IsBoolean()
     @IsOptional()
     read?: boolean
-    
+
 }

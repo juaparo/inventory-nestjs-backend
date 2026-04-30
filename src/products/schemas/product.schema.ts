@@ -3,18 +3,21 @@ import { HydratedDocument } from 'mongoose';
 
 export type ProductDocument = HydratedDocument<Product>;
 
-@Schema({ timestamps: true})
+@Schema({ timestamps: true })
 export class Product {
-    @Prop({ required: true })
+    @Prop({ type: String, required: true })
     name!: string;
 
-    @Prop({ default: 0 })
+    @Prop({ type: Number, default: 0 })
     unitPrice!: number;
 
-    @Prop({ default: 0 })
+    @Prop({ type: Number, default: 0, min: 0 })
+    stock!: number;
+
+    @Prop({ type: Number, default: 0 })
     minStock!: number;
 
-    @Prop({ maxLength: 150 })
+    @Prop({ type: String, maxLength: 150 })
     description!: string;
 }
 

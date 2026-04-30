@@ -6,6 +6,7 @@ import { ProductsModule } from './products/products.module';
 import { DatabaseModule } from './database/database.module';
 import { CategoriesModule } from './categories/categories.module';
 import { AlertsModule } from './alerts/alerts.module';
+import { MovementsModule } from './movements/movements.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { AlertsModule } from './alerts/alerts.module';
     ProductsModule,
     CategoriesModule,
     AlertsModule,
+    MovementsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
